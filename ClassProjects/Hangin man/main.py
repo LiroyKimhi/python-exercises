@@ -46,7 +46,16 @@ while turns != 0:
     if failed == 0:
         print("  you won!")
         break
-    guess = input("  guess a character:")
+    guess = input("  \nguess a character:").lower()
+    if len(guess) != 1:
+        print("only enter a single letter")
+        continue
+    if guess in guesses:
+        print("letter already been guessed, doesn't count as a wrong guess")
+        continue
+    if not guess.isalpha():
+        print("only enter letters")
+        continue
     guesses += guess
     if guess not in word:
         turns -= 1
