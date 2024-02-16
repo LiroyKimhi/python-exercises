@@ -10,8 +10,120 @@ word_list = {
     "pc parts": ["rom", "ram", "hdd", "ssd", "motherboard", "cpu", "psu", "gpu", "coolant", "mouse", "keyboard", "os", "monitor", "bios", "areallycozychair"],
     "animals and mythical creatures": ["monkey", "lion", "bird", "snake", "capibara", "wolf", "parrot", "dragon", "dinosaur", "firefly", "griffin", "pegasus", "cyclops"]
 } 
+hangman = ("""
+                _________________
+                |               |
+                |               |
+                |               |
+               ( )              |
+               /|\              |       
+              / | \             |
+               / \              |
+              /   \             |   
+                                |
+                                |   
+                        __________________       
+""")
+hangman7 = ("""
+                _________________
+                                |
+                                |
+                                |
+                                |
+                                |       
+                                |
+                                |
+                                |   
+                                |
+                                |   
+                        __________________       
+""")
+hangman6 = ("""
+                _________________
+                |               |
+                |               |
+                |               |
+                                |
+                                |       
+                                |
+                                |
+                                |   
+                                |
+                                |   
+                        __________________       
+""")
+hangman5 = ("""
+                _________________
+                |               |
+                |               |
+                |               |
+               ( )              |
+                                |       
+                                |
+                                |
+                                |   
+                                |
+                                |   
+                        __________________       
+""")
+hangman4 = ("""
+                _________________
+                |               |
+                |               |
+                |               |
+               ( )              |
+                |               |       
+                |               |
+                                |
+                                |   
+                                |
+                                |   
+                        __________________       
+""")
+hangman3 = ("""
+                _________________
+                |               |
+                |               |
+                |               |
+               ( )              |
+               /|               |       
+              / |               |
+                                |
+                                |   
+                                |
+                                |   
+                        __________________       
+""")
+hangman2 = ("""
+                _________________
+                |               |
+                |               |
+                |               |
+               ( )              |
+               /|\              |       
+              / | \             |
+                                |
+                                |   
+                                |
+                                |   
+                        __________________       
+""")
+hangman1 = ("""
+                _________________
+                |               |
+                |               |
+                |               |
+               ( )              |
+               /|\              |       
+              / | \             |
+               /                |
+              /                 |   
+                                |
+                                |   
+                        __________________       
+""")
 guesses = ""
-turns = 10
+turns = 7
 category = ""
 randomized = random.choice(type_list)
 choice = input("""
@@ -32,6 +144,8 @@ else:
     category = randomized
 time.sleep(1)
 print("the category is:", category)
+time.sleep(1)
+print(hangman7)
 time.sleep(1)
 word = random.choice(word_list[category])
 
@@ -61,5 +175,18 @@ while turns != 0:
         turns -= 1
         print("wrong")
         print("you have", + turns, "more guesses")
+        if turns == 6:
+            print(hangman6)
+        elif turns == 5:
+            print(hangman5)
+        elif turns == 4:
+            print(hangman4)
+        elif turns == 3:
+            print(hangman3)
+        elif turns == 2:
+            print(hangman2)
+        elif turns == 1:
+            print(hangman1)
     if turns == 0:
         print("you lose, the word was:", word)
+        print(hangman)
